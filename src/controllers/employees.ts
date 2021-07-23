@@ -10,7 +10,7 @@ db.connect()
     .catch((e: any) => console.log(e));
 
 
-module.exports.showEmployees = async (req, res, next) => {
+module.exports.showEmployees = async (req: any, res: any, next: any) => {
     try {
         const employeeData = await db.many(`SELECT * FROM employees`);
         res.render('index', { employeeData })
@@ -19,11 +19,11 @@ module.exports.showEmployees = async (req, res, next) => {
     }
 }
 
-module.exports.employeeForm = (req, res) => {
+module.exports.employeeForm = (req: any, res: any) => {
     res.render('form')
 }
 
-module.exports.getEmployee = async (req, res, next) => {
+module.exports.getEmployee = async (req: any, res: any, next: any) => {
     try {
         const { id } = req.params;
         const employee = await db.one(`select * from employees where employeeid='${id}'`);
@@ -33,7 +33,7 @@ module.exports.getEmployee = async (req, res, next) => {
     }
 }
 
-module.exports.editEmployeeForm = async (req, res, next) => {
+module.exports.editEmployeeForm = async (req: any, res: any, next: any) => {
     try {
         const { id } = req.params;
         const employee = await db.one(`SELECT * FROM employees WHERE employeeid='${id}'`);
@@ -43,7 +43,7 @@ module.exports.editEmployeeForm = async (req, res, next) => {
     }
 }
 
-module.exports.createEmployee = async (req, res, next) => {
+module.exports.createEmployee = async (req: any, res: any, next: any) => {
     try {
         const employee = req.body;
         employee["employeeid"] = uuid();
@@ -55,7 +55,7 @@ module.exports.createEmployee = async (req, res, next) => {
     }
 }
 
-module.exports.updateEmployee = async (req, res, next) => {
+module.exports.updateEmployee = async (req: any, res: any, next: any) => {
     try {
         const { id } = req.params;
         const employee = req.body;
@@ -68,7 +68,7 @@ module.exports.updateEmployee = async (req, res, next) => {
     }
 }
 
-module.exports.deleteEmployee = async (req, res, next) => {
+module.exports.deleteEmployee = async (req: any, res: any, next: any) => {
     try {
         const { id } = req.params;
         const query: string = `DELETE FROM employees WHERE employeeid='${id}'`
