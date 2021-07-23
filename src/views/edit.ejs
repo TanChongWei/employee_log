@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+</head>
+
+<body>
+    <h2>Employee details</h2>
+    <form action='/employees/<%=employee.employeeid %>?_method=PUT' method='POST'>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" required value="<%=employee.firstname%>">
+        <label for=" lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" required value="<%=employee.lastname%>">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required value="<%=employee.email%>">
+        <label for="designation">Designation</label>
+        <input type="text" id="designation" name="designation" required value="<%=employee.designation%>">
+        <button>Save</button>
+        <input type="reset" value="clear fields">
+    </form>
+</body>
+
+</html>
