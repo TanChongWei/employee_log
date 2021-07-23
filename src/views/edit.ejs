@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <nav>
+        <button><a href="/employees">Home</a></button>
+        <button><a href="/employees/new">New Employee</a></button>
+    </nav>
     <h2>Employee details</h2>
     <form action='/employees/<%=employee.employeeid %>?_method=PUT' method='POST'>
         <label for="firstname">First Name</label>

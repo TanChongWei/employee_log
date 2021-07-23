@@ -9,7 +9,26 @@
 </head>
 
 <body>
+    <nav>
+        <button><a href="/employees">Home</a></button>
+        <button><a href="/employees/new">New Employee</a></button>
+    </nav>
     <h1>Employee data!</h1>
+    <div>
+        <h3>
+            <%=employee.firstname %>
+                <%=employee.lastname%>
+        </h3>
+        <p>
+            <%= employee.designation %>
+        </p>
+        <p>
+            <%= employee.email %>
+        </p>
+        <form action='/employees/<%=employee.employeeid%>?_method=DELETE' method='POST'>
+            <button>Delete Employee</button>
+        </form>
+    </div>
 </body>
 
 </html>
